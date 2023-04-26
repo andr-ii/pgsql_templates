@@ -17,4 +17,4 @@ SELECT
   main.random_chars((5 + RANDOM() * 15)::INT),
   main.random_date()
 FROM
-  generate_series (1, 10000);
+  generate_series (1, 100000);

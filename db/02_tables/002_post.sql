@@ -16,4 +16,4 @@ SELECT
   main.random_chars (6) || ' ' || main.random_chars () || ' ' || main.random_chars (14)
 FROM
   main.user AS u,
-  generate_series (1, 2);
+  generate_series (1, 10);

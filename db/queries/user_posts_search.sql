@@ -2,19 +2,20 @@
 WITH user_posts AS (
   -- EXPLAIN (ANALYSE)
   SELECT
-    u.id,
+    p.user_id,
     p.title
   FROM
-    main.user AS u
-    JOIN main.post AS p
-      ON u.id = p.user_id
-      AND p.title ILIKE '%qky%'
+    main.post AS p
+  WHERE
+    p.title ILIKE '%yps%'
 )
 SELECT
   u.name,
   u.id,
-  p.title
+  array_agg(p.title)
 FROM
   user_posts AS p
   JOIN main.user AS u
-    ON u.id = p.id;
+    ON u.id = p.user_id
+GROUP BY
+  u.id;
